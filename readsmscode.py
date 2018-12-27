@@ -18,7 +18,7 @@ class PushBulletSmsCodeReader:
 
   def start_watching(self):
     self._final_sms_code = None
-    self._ws = websocket.WebSocketApp(self._url, on_message = self._on_message)
+    self._ws = websocket.WebSocketApp(self._url, on_message=lambda ws, message: self._on_message(ws, message))
     self._timer = Timer(self._timeout, self._close, [self._ws, True])
     self._timer.start()
     self._thread = Thread(target=self._ws.run_forever)
