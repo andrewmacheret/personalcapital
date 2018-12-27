@@ -1,0 +1,6 @@
+.env
+.DS_Store
+credentials.json
+token.json
+transactions*.csv
+get-transactions*.log
